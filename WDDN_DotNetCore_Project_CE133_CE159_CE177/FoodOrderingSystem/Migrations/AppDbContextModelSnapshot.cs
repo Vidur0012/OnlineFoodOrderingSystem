@@ -87,6 +87,177 @@ namespace FoodOrderingSystem.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("FoodOrderingSystem.Models.Chinese", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Item")
+                        .IsRequired()
+                        .HasColumnType("nchar(20)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(10);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chinese");
+                });
+
+            modelBuilder.Entity("FoodOrderingSystem.Models.ColdDrinks", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Item")
+                        .IsRequired()
+                        .HasColumnType("nchar(20)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(10);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ColdDrinks");
+                });
+
+            modelBuilder.Entity("FoodOrderingSystem.Models.FastFood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Item")
+                        .IsRequired()
+                        .HasColumnType("nchar(20)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(10);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FastFood");
+                });
+
+            modelBuilder.Entity("FoodOrderingSystem.Models.Gujarati", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Item")
+                        .IsRequired()
+                        .HasColumnType("nchar(20)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(10);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Gujarati");
+                });
+
+            modelBuilder.Entity("FoodOrderingSystem.Models.OrderList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Item")
+                        .IsRequired()
+                        .HasColumnType("nchar(20)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(20);
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TotalPrice")
+                        .IsRequired()
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(10);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OrderList");
+                });
+
+            modelBuilder.Entity("FoodOrderingSystem.Models.Punjabi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Item")
+                        .IsRequired()
+                        .HasColumnType("nchar(20)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(10);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Punjabi");
+                });
+
+            modelBuilder.Entity("FoodOrderingSystem.Models.SouthIndian", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Item")
+                        .IsRequired()
+                        .HasColumnType("nchar(20)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Price")
+                        .IsRequired()
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength(true)
+                        .HasMaxLength(10);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SouthIndian");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")

@@ -49,7 +49,7 @@ namespace FoodOrderingSystem.Controllers
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("Index", "Menu");
                 }
                 // If there are any errors, add them to the ModelState object
                 // which will be displayed by the validation summary tag helper
@@ -65,7 +65,7 @@ namespace FoodOrderingSystem.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("index", "home");
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpGet]
@@ -92,7 +92,7 @@ namespace FoodOrderingSystem.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("index", "home");
+                        return RedirectToAction("Index", "Menu");
                     }
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");

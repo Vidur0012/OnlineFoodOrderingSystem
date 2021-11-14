@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vidur\\source\\repos\\FoodOrderingSystem2\\FoodOrderingSystem\\FoodOrderingSystem.csproj": {}
+    "C:\\Users\\thumm\\Downloads\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vidur\\source\\repos\\FoodOrderingSystem2\\FoodOrderingSystem\\FoodOrderingSystem.csproj": {
+    "C:\\Users\\thumm\\Downloads\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vidur\\source\\repos\\FoodOrderingSystem2\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
+        "projectUniqueName": "C:\\Users\\thumm\\Downloads\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
         "projectName": "FoodOrderingSystem",
-        "projectPath": "C:\\Users\\vidur\\source\\repos\\FoodOrderingSystem2\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
-        "packagesPath": "C:\\Users\\vidur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vidur\\source\\repos\\FoodOrderingSystem2\\FoodOrderingSystem\\obj\\",
+        "projectPath": "C:\\Users\\thumm\\Downloads\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
+        "packagesPath": "C:\\Users\\thumm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thumm\\Downloads\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vidur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thumm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,6 +57,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.19, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Utils": {
+              "target": "Package",
+              "version": "[3.1.5, )"
             }
           },
           "imports": [
