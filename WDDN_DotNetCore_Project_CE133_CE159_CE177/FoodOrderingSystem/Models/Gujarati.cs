@@ -12,5 +12,7 @@ namespace FoodOrderingSystem.Models
         public int Id { get; set; }
         public string Item { get; set; }
         public string Price { get; set; }
+        public string PhotoPath { get; set; }
+
     }
 }

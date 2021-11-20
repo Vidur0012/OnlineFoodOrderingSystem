@@ -1,8 +1,10 @@
 using FoodOrderingSystem.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,15 +25,20 @@ namespace FoodOrderingSystem
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        //to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<AppDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("FoodOrderingSysDbConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>()
                .AddEntityFrameworkStores<AppDbContext>();
-            services.AddControllersWithViews();
-            //services.AddScoped<IUserRepository, SQLUSerRepository>();
+            services.AddControllersWithViews(config => {
+                var policy = new AuthorizationPolicyBuilder()
+                                .RequireAuthenticatedUser()
+                                .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            });
+           
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);//We set Time here 
@@ -41,7 +48,7 @@ namespace FoodOrderingSystem
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        //to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -54,13 +61,6 @@ namespace FoodOrderingSystem
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-           
-            //app.UseHttpsRedirection();
-            //app.UseStaticFiles();
-
-            //app.UseRouting();
-            //app.UseAuthentication();
-            //app.UseAuthorization();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

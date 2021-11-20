@@ -16,13 +16,7 @@ namespace FoodOrderingSystem.Models
         {
 
         }
-        //public DbSet<User> Users { get; set; }
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //    modelBuilder.Seed();
-        //}
+       
 
         public virtual DbSet<Chinese> Chinese { get; set; }
         public virtual DbSet<ColdDrinks> ColdDrinks { get; set; }
@@ -37,11 +31,11 @@ namespace FoodOrderingSystem.Models
             if (!optionsBuilder.IsConfigured)
             {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("server=DESKTOP-FMD1EAK\\SQLEXPRESS; database=Menu; trusted_connection=true;");
+                optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB;database=FoodOrderingSysDB;Trusted_Connection=true");
             }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void  OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Chinese>(entity =>

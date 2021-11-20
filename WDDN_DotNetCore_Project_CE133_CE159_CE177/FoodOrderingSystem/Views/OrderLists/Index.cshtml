@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<FoodOrderingSystem.Models.OrderList>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cart";
 }
 
-<h1>Index</h1>
+<h1>Order List</h1>
 @{ 
     var sum = 0;
 }
@@ -40,9 +40,7 @@
                     @Html.DisplayFor(modelItem => (item.TotalPrice))
                 </td>
                 <td>
-                    @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Delete"  class="btn btn-outline-danger" asp-route-id="@item.Id"><b>Delete</b></a>
                 </td>
             </tr>
             sum = sum + Convert.ToInt32(item.TotalPrice);
@@ -54,9 +52,8 @@
 </table>
 <center>
     <p>
-        @*<a asp-action="Create">Create New</a>*@
-        <a asp-action="Payment" asp-controller="Payment" asp-route-id="@sum">Order</a><br />
-        <a asp-controller="Menu" asp-action="Index">Back to Menu</a>
+        <br /> <br />
+        <a class="btn btn-primary" asp-action="Payment" asp-controller="Payment" asp-route-id="@sum"> Order Now </a><br />
     </p>
 </center>
  

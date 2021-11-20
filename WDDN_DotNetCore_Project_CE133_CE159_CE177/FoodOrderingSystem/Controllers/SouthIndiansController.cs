@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FoodOrderingSystem.Models;
 using Microsoft.AspNetCore.Http;
+using FoodOrderingSystem.ViewModels;
+using System.IO;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace FoodOrderingSystem.Controllers
 {
@@ -42,8 +46,32 @@ namespace FoodOrderingSystem.Controllers
 
             return View(southIndian);
         }
+        private string ProcessUploadedFile(GeneralViewModel model)
+        {
+            string uniqueFileName = null;
+
+            if (model.Photo != null)
+            {
+                // The image must be uploaded to the images folder in wwwroot
+                // To get the path of the wwwroot folder we are directly providing path 
+                string uploadsFolder = "wwwroot/images";
+
+                // To make sure the file name is unique we are appending a new
+                // GUID value and and an underscore to the file name
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Photo.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.Photo.CopyTo(fileStream);
+                }
+            }
+
+            return uniqueFileName;
+        }
 
         // GET: SouthIndians/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -54,18 +82,34 @@ namespace FoodOrderingSystem.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Item,Price")] SouthIndian southIndian)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Create(GeneralViewModel model)
         {
             if (ModelState.IsValid)
             {
+                string uniqueFileName = null;
+
+                // If the Photo property on the incoming model object is not null, then the user
+                // has selected an image to upload.
+                if (model.Photo != null)
+                {
+                    uniqueFileName = ProcessUploadedFile(model);
+                }
+                SouthIndian southIndian = new SouthIndian
+                {
+                    Item = model.Item,
+                    Price = model.Price,
+                    PhotoPath = uniqueFileName
+                };
                 _context.Add(southIndian);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(southIndian);
+            return View(model);
         }
 
         // GET: SouthIndians/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,7 +122,14 @@ namespace FoodOrderingSystem.Controllers
             {
                 return NotFound();
             }
-            return View(southIndian);
+            GeneralViewModel generalViewModel = new GeneralViewModel
+            {
+                Id = southIndian.Id,
+                Item = southIndian.Item,
+                Price = southIndian.Price,
+                ExistingPhotoPath = southIndian.PhotoPath
+            };
+            return View(generalViewModel);
         }
 
         // POST: SouthIndians/Edit/5
@@ -86,9 +137,10 @@ namespace FoodOrderingSystem.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Item,Price")] SouthIndian southIndian)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int id, GeneralViewModel model)
         {
-            if (id != southIndian.Id)
+            if (id != model.Id)
             {
                 return NotFound();
             }
@@ -97,12 +149,27 @@ namespace FoodOrderingSystem.Controllers
             {
                 try
                 {
+                    var southIndian = await _context.SouthIndian.FindAsync(id);
+                    southIndian.Item = model.Item;
+                    southIndian.Price = model.Price;
+                    if (model.Photo != null)
+                    {
+                        southIndian.PhotoPath = ProcessUploadedFile(model);
+
+                        // If a new photo is uploaded, the existing photo must be
+                        // deleted. So check if there is an existing photo and delete
+                        if (model.ExistingPhotoPath != null)
+                        {
+                            string filePath = "wwwroot/images/" + model.ExistingPhotoPath;
+                            System.IO.File.Delete(filePath);
+                        }
+                    }
                     _context.Update(southIndian);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SouthIndianExists(southIndian.Id))
+                    if (!SouthIndianExists(model.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +180,11 @@ namespace FoodOrderingSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(southIndian);
+            return View(model);
         }
 
         // GET: SouthIndians/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,9 +205,15 @@ namespace FoodOrderingSystem.Controllers
         // POST: SouthIndians/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var southIndian = await _context.SouthIndian.FindAsync(id);
+            if (southIndian.PhotoPath != null)
+            {
+                string filePath = "wwwroot/images/" + southIndian.PhotoPath;
+                System.IO.File.Delete(filePath);
+            }
             _context.SouthIndian.Remove(southIndian);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -150,7 +224,7 @@ namespace FoodOrderingSystem.Controllers
             return _context.SouthIndian.Any(e => e.Id == id);
         }
 
-        public async Task<IActionResult> AddCard(int? id)
+        public async Task<IActionResult> AddCart(int? id)
         {
             if (id == null)
             {
@@ -171,33 +245,20 @@ namespace FoodOrderingSystem.Controllers
             return View();
         }
 
-        [HttpPost, ActionName("AddCard")]
+        [HttpPost, ActionName("AddCart")]
         [ValidateAntiForgeryToken]
-        public IActionResult AddCard()
+        public IActionResult AddCart()
         {
             OrderList ol = new OrderList();
             ol.Item = HttpContext.Request.Form["Item"].ToString();
+            ol.Email = User.Identity.Name;
             ol.Quantity = Convert.ToInt32(HttpContext.Request.Form["Quantity"]);
             ol.TotalPrice = (Convert.ToInt32(HttpContext.Request.Form["TotalPrice"]) * ol.Quantity).ToString();
 
             _context.OrderList.Add(ol);
             _context.SaveChanges();
 
-            //ol.Item = order.Item;
-            //ol.Quantity = order.Quantity;
-            //ol.TotalPrice = order.TotalPrice;
-
-            //int result = ol.SaveDetails();
-
-            //if (result > 0)
-            //{
-            //    ViewBag.Result = "Data Saved Successfully";
-            //}
-            //else
-            //{
-            //    ViewBag.Result = "Something Went Wrong";
-            //}
-            return RedirectToRoute(new { controller = "OrderLists", action = "Index" });
+            return RedirectToRoute(new { controller = "SouthIndians", action = "Index" });
         }
     }
 }

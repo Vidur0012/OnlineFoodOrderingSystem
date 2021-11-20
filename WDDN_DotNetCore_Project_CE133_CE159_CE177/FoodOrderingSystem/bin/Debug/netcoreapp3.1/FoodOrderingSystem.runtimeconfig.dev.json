@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\thumm\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\thumm\\.nuget\\packages"
+      "C:\\Users\\vidur\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\vidur\\.nuget\\packages"
     ]
   }
 }

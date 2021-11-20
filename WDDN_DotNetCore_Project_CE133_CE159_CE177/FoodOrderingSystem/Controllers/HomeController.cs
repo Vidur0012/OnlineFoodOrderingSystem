@@ -1,4 +1,5 @@
 ﻿using FoodOrderingSystem.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -22,6 +23,7 @@ namespace FoodOrderingSystem.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
 
         public IActionResult Privacy()
         {

@@ -1,14 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model FoodOrderingSystem.Models.Payment_Online
+﻿@model FoodOrderingSystem.Models.Payment_Online
 
 
 <h1>Payment</h1>
-
-<form asp-controller="Payment" asp-action="Success_Online" method="post">
+<br />
+<form class="pay-form" asp-controller="Payment" asp-action="Success_Online" method="post">
     <label asp-for="Name">Name on card</label>
     <input asp-for="Name" class="form-control" />
     <span style="color:red" asp-validation-for="Name"></span>

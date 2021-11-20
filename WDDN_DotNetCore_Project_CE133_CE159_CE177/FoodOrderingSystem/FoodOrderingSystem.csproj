@@ -5,49 +5,35 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Views\Chinese\AddCard.cshtml" />
-    <None Include="Views\Chinese\Create.cshtml" />
-    <None Include="Views\Chinese\Delete.cshtml" />
-    <None Include="Views\Chinese\Details.cshtml" />
-    <None Include="Views\Chinese\Edit.cshtml" />
-    <None Include="Views\Chinese\Index.cshtml" />
-    <None Include="Views\ColdDrinks\AddCard.cshtml" />
-    <None Include="Views\ColdDrinks\Create.cshtml" />
-    <None Include="Views\ColdDrinks\Delete.cshtml" />
-    <None Include="Views\ColdDrinks\Details.cshtml" />
-    <None Include="Views\ColdDrinks\Edit.cshtml" />
-    <None Include="Views\ColdDrinks\Index.cshtml" />
-    <None Include="Views\FastFoods\AddCard.cshtml" />
-    <None Include="Views\FastFoods\Create.cshtml" />
-    <None Include="Views\FastFoods\Delete.cshtml" />
-    <None Include="Views\FastFoods\Details.cshtml" />
-    <None Include="Views\FastFoods\Edit.cshtml" />
-    <None Include="Views\FastFoods\Index.cshtml" />
-    <None Include="Views\Gujaratis\AddCard.cshtml" />
-    <None Include="Views\Gujaratis\Create.cshtml" />
-    <None Include="Views\Gujaratis\Delete.cshtml" />
-    <None Include="Views\Gujaratis\Details.cshtml" />
-    <None Include="Views\Gujaratis\Edit.cshtml" />
-    <None Include="Views\Gujaratis\Index.cshtml" />
-    <None Include="Views\Menu\Index.cshtml" />
-    <None Include="Views\OrderLists\Create.cshtml" />
-    <None Include="Views\OrderLists\Delete.cshtml" />
-    <None Include="Views\OrderLists\Details.cshtml" />
-    <None Include="Views\OrderLists\Edit.cshtml" />
-    <None Include="Views\OrderLists\Index.cshtml" />
-    <None Include="Views\Payment\Payment.cshtml" />
-    <None Include="Views\Punjabis\AddCard.cshtml" />
-    <None Include="Views\Punjabis\Create.cshtml" />
-    <None Include="Views\Punjabis\Delete.cshtml" />
-    <None Include="Views\Punjabis\Details.cshtml" />
-    <None Include="Views\Punjabis\Edit.cshtml" />
-    <None Include="Views\Punjabis\Index.cshtml" />
-    <None Include="Views\SouthIndians\AddCard.cshtml" />
-    <None Include="Views\SouthIndians\Create.cshtml" />
-    <None Include="Views\SouthIndians\Delete.cshtml" />
-    <None Include="Views\SouthIndians\Details.cshtml" />
-    <None Include="Views\SouthIndians\Edit.cshtml" />
-    <None Include="Views\SouthIndians\Index.cshtml" />
+    <Compile Remove="bin\**" />
+    <Compile Remove="obj\**" />
+    <Compile Remove="Views\FoodItems\**" />
+    <Content Remove="bin\**" />
+    <Content Remove="obj\**" />
+    <Content Remove="Views\FoodItems\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="Views\FoodItems\**" />
+    <None Remove="bin\**" />
+    <None Remove="obj\**" />
+    <None Remove="Views\FoodItems\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20211114102122_UpdateDB.cs" />
+    <Compile Remove="Migrations\20211114102122_UpdateDB.Designer.cs" />
+    <Compile Remove="Migrations\20211115175821_testimg.cs" />
+    <Compile Remove="Migrations\20211115175821_testimg.Designer.cs" />
+    <Compile Remove="Migrations\20211115181331_testimage.cs" />
+    <Compile Remove="Migrations\20211115181331_testimage.Designer.cs" />
+    <Compile Remove="Migrations\20211115181711_testimg.cs" />
+    <Compile Remove="Migrations\20211115181711_testimg.Designer.cs" />
+    <Compile Remove="Migrations\20211115182150_testimages.cs" />
+    <Compile Remove="Migrations\20211115182150_testimages.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Chinese\Details.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

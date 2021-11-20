@@ -10,6 +10,7 @@ using FoodOrderingSystem.ViewModels;
 
 namespace FoodOrderingSystem.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
@@ -24,13 +25,11 @@ namespace FoodOrderingSystem.Controllers
 
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
         }
         [HttpPost]
-        [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -45,7 +44,7 @@ namespace FoodOrderingSystem.Controllers
                 // Store user data in AspNetUsers database table
                 var result = await userManager.CreateAsync(user, model.Password);
                 // If user is successfully created, sign-in the user using
-                // SignInManager and redirect to index action of HomeController
+                // SignInManager and redirect to index action of MenuController
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
@@ -69,14 +68,12 @@ namespace FoodOrderingSystem.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)

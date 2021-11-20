@@ -15,17 +15,8 @@ namespace FoodOrderingSystem.Models
         public int Quantity { get; set; }
         public string TotalPrice { get; set; }
 
-        //internal int SaveDetails()
-        //{
-        //    //var cs= @"server=DESKTOP-FMD1EAK\SQLEXPRESS; database=Menu; trusted_connection=true;";
-        //    var cs = @"server=(localdb)\\MSSQLLocalDB;database=FoodOrderingSysDB;Trusted_Connection=true";
-        //    SqlConnection con = new SqlConnection(cs);
-        //    string query = "INSERT INTO OrderList(Item, Quantity, TotalPrice) values ('" + Item + "','" + Quantity + "','" + (Quantity * Convert.ToInt32(TotalPrice)).ToString() + "')";
-        //    SqlCommand cmd = new SqlCommand(query, con);
-        //    con.Open();
-        //    int i = cmd.ExecuteNonQuery();
-        //    con.Close();
-        //    return i;
-        //}
+        public string Email { get; set; }
+
+       
     }
 }

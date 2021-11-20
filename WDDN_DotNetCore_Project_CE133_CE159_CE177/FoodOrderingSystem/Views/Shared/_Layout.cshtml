@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FoodOrderingSystem</title>
+    <title>@ViewData["Title"]  Food-Ordering-System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FoodOrderingSystem</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Food-Ordering-System</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,20 +20,24 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Menu" asp-action="Index">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
                                 <form class="nav-link text-dark" method="post" asp-controller="account" asp-action="logout">
                                     <button type="submit" style="width:auto"
                                             class="nav-link btn text-dark btn-link py-0">
-                                        Logout 
+                                        Logout
                                     </button>
-                                </form>                            
+                                </form>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="OrderLists" asp-action="Index"><img width="50px" src="~/images/cart1.jpg" /></a>
                             </li>
                         }
                         else
@@ -45,6 +49,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="login">Login</a>
                             </li>
                         }
+                       
                     </ul>
                 </div>
             </div>

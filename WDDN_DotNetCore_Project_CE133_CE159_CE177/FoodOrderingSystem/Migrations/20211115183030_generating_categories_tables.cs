@@ -2,7 +2,7 @@
 
 namespace FoodOrderingSystem.Migrations
 {
-    public partial class UpdateDB : Migration
+    public partial class generating_categories_tables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,8 @@ namespace FoodOrderingSystem.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Item = table.Column<string>(fixedLength: true, maxLength: 20, nullable: false),
-                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false)
+                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false),
+                    PhotoPath = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -27,7 +28,8 @@ namespace FoodOrderingSystem.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Item = table.Column<string>(fixedLength: true, maxLength: 20, nullable: false),
-                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false)
+                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false),
+                    PhotoPath = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -41,7 +43,8 @@ namespace FoodOrderingSystem.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Item = table.Column<string>(fixedLength: true, maxLength: 20, nullable: false),
-                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false)
+                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false),
+                    PhotoPath = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -55,7 +58,8 @@ namespace FoodOrderingSystem.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Item = table.Column<string>(fixedLength: true, maxLength: 20, nullable: false),
-                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false)
+                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false),
+                    PhotoPath = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -84,7 +88,8 @@ namespace FoodOrderingSystem.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Item = table.Column<string>(fixedLength: true, maxLength: 20, nullable: false),
-                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false)
+                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false),
+                    PhotoPath = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -98,7 +103,8 @@ namespace FoodOrderingSystem.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Item = table.Column<string>(fixedLength: true, maxLength: 20, nullable: false),
-                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false)
+                    Price = table.Column<string>(fixedLength: true, maxLength: 10, nullable: false),
+                    PhotoPath = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

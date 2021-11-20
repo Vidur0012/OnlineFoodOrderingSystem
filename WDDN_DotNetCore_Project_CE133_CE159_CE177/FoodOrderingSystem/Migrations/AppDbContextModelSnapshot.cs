@@ -100,6 +100,9 @@ namespace FoodOrderingSystem.Migrations
                         .IsFixedLength(true)
                         .HasMaxLength(20);
 
+                    b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Price")
                         .IsRequired()
                         .HasColumnType("nchar(10)")
@@ -123,6 +126,9 @@ namespace FoodOrderingSystem.Migrations
                         .HasColumnType("nchar(20)")
                         .IsFixedLength(true)
                         .HasMaxLength(20);
+
+                    b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Price")
                         .IsRequired()
@@ -148,6 +154,9 @@ namespace FoodOrderingSystem.Migrations
                         .IsFixedLength(true)
                         .HasMaxLength(20);
 
+                    b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Price")
                         .IsRequired()
                         .HasColumnType("nchar(10)")
@@ -172,6 +181,9 @@ namespace FoodOrderingSystem.Migrations
                         .IsFixedLength(true)
                         .HasMaxLength(20);
 
+                    b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Price")
                         .IsRequired()
                         .HasColumnType("nchar(10)")
@@ -189,6 +201,9 @@ namespace FoodOrderingSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Item")
                         .IsRequired()
@@ -223,6 +238,9 @@ namespace FoodOrderingSystem.Migrations
                         .IsFixedLength(true)
                         .HasMaxLength(20);
 
+                    b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Price")
                         .IsRequired()
                         .HasColumnType("nchar(10)")
@@ -246,6 +264,9 @@ namespace FoodOrderingSystem.Migrations
                         .HasColumnType("nchar(20)")
                         .IsFixedLength(true)
                         .HasMaxLength(20);
+
+                    b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Price")
                         .IsRequired()

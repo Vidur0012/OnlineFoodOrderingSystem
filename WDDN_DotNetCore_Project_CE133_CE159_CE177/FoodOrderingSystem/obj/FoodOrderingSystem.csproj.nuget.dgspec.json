@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thumm\\Downloads\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj": {}
+    "C:\\Users\\vidur\\source\\repos\\tmp\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thumm\\Downloads\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj": {
+    "C:\\Users\\vidur\\source\\repos\\tmp\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thumm\\Downloads\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
+        "projectUniqueName": "C:\\Users\\vidur\\source\\repos\\tmp\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
         "projectName": "FoodOrderingSystem",
-        "projectPath": "C:\\Users\\thumm\\Downloads\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
-        "packagesPath": "C:\\Users\\thumm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thumm\\Downloads\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\obj\\",
+        "projectPath": "C:\\Users\\vidur\\source\\repos\\tmp\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
+        "packagesPath": "C:\\Users\\vidur\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vidur\\source\\repos\\tmp\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\thumm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vidur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

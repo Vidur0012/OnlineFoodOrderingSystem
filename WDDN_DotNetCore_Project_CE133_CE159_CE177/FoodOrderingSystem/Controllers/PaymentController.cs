@@ -10,29 +10,34 @@ namespace FoodOrderingSystem.Controllers
 {
     public class PaymentController : Controller
     {
+        private readonly AppDbContext _context;
         public IActionResult Payment(int? id)
         {
             HttpContext.Session.SetInt32("tp", (int)id);
-            //TempData["tp"] = id;
+           
             return View();
         }
         [HttpPost]
         public IActionResult Payment_Online(Payment payment)
         {
-            ViewBag.TPOnline =  HttpContext.Session.GetInt32("tp");
+            ViewBag.TPOnline = HttpContext.Session.GetInt32("tp");
             if (ModelState.IsValid)
             {
                 return View();
-                
+
             }
             return View("~/Views/Payment/Payment.cshtml");
 
         }
-
-        public IActionResult Payment_Offline()
+        [HttpPost]
+        public IActionResult Payment_Offline(Payment payment)
         {
             ViewBag.TPOffline = HttpContext.Session.GetInt32("tp");
-            return View();
+            if (ModelState.IsValid)
+            {
+                return View();
+            }
+            return View("~/Views/Payment/Payment.cshtml");
         }
         [HttpPost]
         public IActionResult Success_Online(Payment_Online paymentonline)
@@ -44,11 +49,13 @@ namespace FoodOrderingSystem.Controllers
 
             }
             return View("~/Views/Payment/Payment_Online.cshtml");
-           
+
         }
 
         public IActionResult Success_Offline()
         {
+            ViewBag.TPOnline = HttpContext.Session.GetInt32("tp");
+            
             return View();
         }
     }

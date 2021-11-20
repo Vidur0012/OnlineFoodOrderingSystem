@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FoodOrderingSystem.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace FoodOrderingSystem.Controllers
 {
@@ -21,7 +22,8 @@ namespace FoodOrderingSystem.Controllers
         // GET: OrderLists
         public async Task<IActionResult> Index()
         {
-            return View(await _context.OrderList.ToListAsync());
+            //return View(await _context.OrderList.ToListAsync());
+            return View(await _context.OrderList.Where(b => b.Email == User.Identity.Name).ToListAsync());
         }
 
         // GET: OrderLists/Details/5
@@ -43,7 +45,7 @@ namespace FoodOrderingSystem.Controllers
         }
 
         // GET: OrderLists/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
             return View();
         }

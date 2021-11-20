@@ -13,8 +13,8 @@ namespace FoodOrderingSystem.Models
         [Required]
         public string Address { get; set; }
         [Required]
-        [Range(1000000000,9999999999,ErrorMessage ="please enter valied mob")]
-        public int Mob { get; set; }
+        [Range(1000000000,9999999999,ErrorMessage ="please enter valid mobile number.")]
+        public long Mob { get; set; }
 
     }
 }
