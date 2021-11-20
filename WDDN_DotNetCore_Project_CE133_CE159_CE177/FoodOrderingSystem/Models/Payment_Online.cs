@@ -17,12 +17,12 @@ namespace FoodOrderingSystem.Models
 
 
         [Required]
-        [Range(1, 12, ErrorMessage = "please enter valid card month")]
+        [Range(1, 12, ErrorMessage = "please enter valid month")]
         public int Month { get; set; }
 
 
         [Required]
-        [Range(2000,2030 , ErrorMessage = "please enter valid year")]
+        [Range(2021,2030 , ErrorMessage = "please enter valid year")]
         public int Year { get; set; }
 
 

@@ -22,7 +22,6 @@ namespace FoodOrderingSystem.Controllers
         // GET: OrderLists
         public async Task<IActionResult> Index()
         {
-            //return View(await _context.OrderList.ToListAsync());
             return View(await _context.OrderList.Where(b => b.Email == User.Identity.Name).ToListAsync());
         }
 
