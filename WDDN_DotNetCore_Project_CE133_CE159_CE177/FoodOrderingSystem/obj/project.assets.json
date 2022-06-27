@@ -8626,19 +8626,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vidur\\.nuget\\packages\\": {}
+    "C:\\Users\\thumm\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vidur\\source\\repos\\tmp\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
+      "projectUniqueName": "D:\\All Project\\WDDN_2nd_SEM5 .Net Core MVC\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
       "projectName": "FoodOrderingSystem",
-      "projectPath": "C:\\Users\\vidur\\source\\repos\\tmp\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
-      "packagesPath": "C:\\Users\\vidur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vidur\\source\\repos\\tmp\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\obj\\",
+      "projectPath": "D:\\All Project\\WDDN_2nd_SEM5 .Net Core MVC\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\FoodOrderingSystem.csproj",
+      "packagesPath": "C:\\Users\\thumm\\.nuget\\packages\\",
+      "outputPath": "D:\\All Project\\WDDN_2nd_SEM5 .Net Core MVC\\OnlineFoodOrderingSystem\\WDDN_DotNetCore_Project_CE133_CE159_CE177\\FoodOrderingSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\vidur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\thumm\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8709,7 +8709,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
   }

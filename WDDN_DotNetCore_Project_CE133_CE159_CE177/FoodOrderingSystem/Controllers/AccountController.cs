@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using FoodOrderingSystem.Models;
 using FoodOrderingSystem.ViewModels;
+using System.Data;
 
 namespace FoodOrderingSystem.Controllers
 {
@@ -63,6 +64,7 @@ namespace FoodOrderingSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
+          
             await signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
